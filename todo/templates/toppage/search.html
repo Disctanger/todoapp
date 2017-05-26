@@ -1,0 +1,105 @@
+{% extends "toppage/header.html" %}
+{% load crispy_forms_tags %}
+
+{%block formBlock%}
+<div class="jumbotron">
+
+	<h1>Search</h1>
+<form class="" method='GET' action='' role="search">
+
+  <div class="form-group">
+	<div class="row">
+
+		<div class="col-xs-6">
+			<input type="text" onkeypress="showWarning(this, 20)" onblur="showWarning(this, 20)" name="q" class="form-control  " placeholder="Search" value="{{request.GET.q}}"></br>
+		</div>
+		<input type="submit" class='btn btn-primary col-xs-2'value='Search' >
+	</div>
+  </div>
+</form>
+{%if info%}
+	<p class='alert alert-warning'>{{info}}</p>
+{%endif%}
+</div>
+
+{%endblock%}
+
+
+{%block todoContent%}
+<div class="panel panel-primary">
+			<div class='panel panel-info'>
+			<h2 style='text-align:center'>ToDos</h2>
+			{%if messageItem%}
+			<div class="alert alert-danger" role="alert"><p style='text-align:center'>{{messageItem}}</p></div>
+			{%endif%}
+			</div>
+	{%for item in todoContent%}
+		
+		
+			
+				<div style='margin:10px' class=" panel panel-success">
+
+				<div class="row">
+				  <div class="col-md-6">
+				  <a class="link-text" href="/list/{{item.list.id}}" style='margin:10px; font-size:40px'>{{item.title}}</a></br>
+				  <span class="text-element itemListDate" style='margin-left:25px; margin-bottom:25px'>List: <strong>{{item.list.title}}</strong> </span>
+				  </div>
+				  <div class="col-md-6"></br>
+				  <span class="text-element itemListInfo"  style='margin-left:25px; margin-bottom:10px' >ToDo is due date: <strong>{{item.due_Date|date:"Y-m-d H:i"}}</strong></span></br>
+				<span class="text-element itemListDate" style='margin-left:25px; margin-bottom:10px'>Date of creation: <strong>{{item.createTime|date:"Y-m-d H:i"}}</strong> </span>
+						
+				  </div>
+				</div>
+						
+						
+						{%if item.completed %}
+				
+							<form style='margin-top:20px; margin-left:20px' id="{{item.id}}" method='POST' action=''> {%csrf_token%}
+								{{ completeForm|crispy }}
+								<a >The ToDo was completed on {{item.completed_date|date:"Y-m-d H:i"}}</a></br>	
+								
+							</form>
+							
+						
+							
+							
+						{%endif%}
+						
+						
+				
+
+			  </div>
+			 
+	
+	{%endfor%}
+	
+	</div>
+{%endblock%}
+
+{%block todoListContent%}
+<div class="panel panel-danger">
+			<div class='panel panel-danger'><h2 style='text-align:center'>ToDo Lists</h2>	 
+			{%if messageList%}
+			<div class="alert alert-danger" role="alert"><p style='text-align:center'>{{messageList}}</p></div>
+			{%endif%}
+			</div>
+	{%for list in todoListContent%}
+	
+		<div style='margin:10px'class="panel panel-danger">
+				<div class="panel-body">
+
+				
+					
+						<a class="link-text" href="/list/{{list.id}}" style='margin:10px; font-size:40px'>{{list.title}}</a></br>
+						<span class="text-element itemListInfo"  style='margin-left:25px; margin-bottom:10px' >{{list.todoAmount}} of {{list.finishedAmount}} in the ToDo list finished</span></br>
+						<span class="text-element itemListDate" style='margin-left:25px; margin-bottom:10px'>Date of creation: {{list.createTime|date:"Y-m-d H:i"}} </span>
+						
+						
+				
+
+			  </div>
+			</div>
+		
+	{%endfor%}
+</div>
+{%endblock%}
