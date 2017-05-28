@@ -20,9 +20,9 @@ Application also has a function of deleting Todos and Todo lists. Moreover, Todo
 4 * Install crispy forms - http://django-crispy-forms.readthedocs.io/en/latest/install.html</br>
 
 5 * Open terminal or command promt and enter following </br>
-<code>C:\Users\Disctanger\Desktop\Django-app\todoapp>python manage.py makemigrations</code></br>
-<code>C:\Users\Disctanger\Desktop\Django-app\todoapp>python manage.py migrate</code></br>
-<code>C:\Users\Disctanger\Desktop\Django-app\todoapp>python manage.py runserver</code></br>
+<code>python manage.py makemigrations</code></br>
+<code>python manage.py migrate</code></br>
+<code>python manage.py runserver</code></br>
 
 # Requirements:
 Python = 3.x.x</br>
@@ -31,4 +31,4 @@ Crispy Forms</br>
 Bootstrap 3</br>
 
 # Live Demo
-Coming very soon...
+http://disctanger.webfactional.com/
