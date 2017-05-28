@@ -13,8 +13,8 @@
 				<h2>ToDo List: {{list_title}}</h2>
 				
 				<form method='POST' action=''> {%csrf_token%}
-					{{ form|crispy }}
-					<input class='btn btn-primary' type='submit' value='Create Item'/>
+					{{ form }}
+					<input class='btn btn-primary' type='submit' value='Create ToDo'/>
 				</form>
 				{%if info%}
 					<p class='alert alert-warning'>{{info}}</p>
@@ -41,9 +41,16 @@
 				
 					
 						<h3 class="link-text"  style='margin:10px; font-size:40px'>{{item.title}}</h3></br>
-						<span class="text-element itemListInfo"  style='margin-left:25px; margin-bottom:10px' >ToDo is due date:<strong> {{item.due_Date|date:"Y-m-d H:i"}}</strong></span></br>
-						<span class="text-element itemListDate" style='margin-left:25px; margin-bottom:10px'>Date of creation: {{item.createTime|date:"Y-m-d H:i"}} </span>
-						
+						<div class="row">
+						  <div class="col-md-6">
+						 
+						  </div>
+						  <div class="col-md-6"></br>
+						  <span class="text-element itemListInfo"  style='margin-left:25px; margin-bottom:10px' >ToDo is due date: <strong>{{item.due_Date|date:"Y-m-d H:i"}}</strong></span></br>
+						<span class="text-element itemListDate" style='margin-left:25px; margin-bottom:10px'>Date of creation: <strong>{{item.createTime|date:"Y-m-d H:i"}}</strong> </span>
+								
+						  </div>
+						</div>
 						{%if item.completed %}
 				
 							<form style='margin-top:20px; margin-left:20px' id="{{item.id}}" method='POST' action=''> {%csrf_token%}

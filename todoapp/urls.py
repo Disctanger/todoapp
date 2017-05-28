@@ -20,7 +20,7 @@ from todo.views import (
     search,
     list,
     detail,
-    edit)
+    )
 
 urlpatterns = [
     #url(r'^$', list, name='list'),

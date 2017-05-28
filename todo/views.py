@@ -108,6 +108,7 @@ def detail (request, id):
         
     
     form = ToDoForm()
+    print(str(form))
     context = {
         "info" : info,
         "object_list": queryset,

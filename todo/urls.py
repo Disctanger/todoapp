@@ -21,6 +21,7 @@ from .views import (
 
 urlpatterns = [
     url(r'^$', list, name="list" ),
-    url(r'^list/(?P<id>\d+)$', detail, name="detail" ),
     url(r'search/$', search, name="search"),
+    url(r'^list/(?P<id>\d+)', detail, name="detail" ),
+
     ]
