@@ -34,8 +34,11 @@ def list (request):
     form = ListForm()
     queryset = List.objects.order_by('-createTime')
     for items in queryset:
+        items.todoAmount = 0
         items.todoAmount = Item.objects.filter(list=items.id).count()
         items.finishedAmount = Item.objects.filter(list=items.id, completed=True).count()
+        print (str(items.todoAmount))
+        items.save()
  
     context = {
         "info" : info,
@@ -108,7 +111,7 @@ def detail (request, id):
         
     
     form = ToDoForm()
-    print(str(form))
+    print(str(instance))
     context = {
         "info" : info,
         "object_list": queryset,

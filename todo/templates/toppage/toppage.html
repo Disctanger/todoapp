@@ -39,6 +39,14 @@
 
 	<div class="jumbotron">
 	
+		{%if object_list|length == 0%}
+			<p class='alert alert-danger'> There are no Todo lists in the database. Please create one by entering Title</p>
+		{%elif object_list|length == 1%}
+			<p class='alert alert-success'> There is {{object_list|length}} ToDo list in the database</p>
+		{%else%}
+			<p class='alert alert-success'> There are {{object_list|length}} Todo lists</p>
+		{%endif%}
+	
 	
 		{%for list in object_list%}
 

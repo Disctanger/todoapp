@@ -33,6 +33,15 @@
 
 
 <div class="jumbotron">
+
+	{%if instance.todoAmount == 0%}
+			<p class='alert alert-danger'> There are no Todos in this ToDo list</p>
+	{%elif instance.todoAmount == 1%}
+		<p class='alert alert-success'> There is {{instance.todoAmount}} ToDo in this ToDo list</p>
+	{%else%}
+			<p class='alert alert-success'> There are {{instance.todoAmount}} Todos in this ToDo list</p>
+	{%endif%}
+
 	{%for item in object_list%}
 	
 	<div class="panel panel-default">
