@@ -25,8 +25,9 @@ Application also has a function of deleting Todos and Todo lists. Moreover, Todo
 <code>python manage.py runserver</code></br>
 
 # Requirements:
-Python = 3.x.x</br>
-Django >= 1.9</br>
+This project was done under following environment
+Python = 3.6</br>
+Django >= 1.11.1</br>
 Crispy Forms</br>
 Bootstrap 3</br>
 
