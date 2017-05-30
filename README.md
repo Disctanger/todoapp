@@ -2,6 +2,7 @@
 My First Web App on Django
 
 This is my first web app on Django. This app creates todo lists and todo activity to each todo list. Application also has a feature of deling Todos</br>
+For more information, consider visiting Wiki page <link>https://github.com/Disctanger/todoapp/wiki</link>
 
 
 # Description:
